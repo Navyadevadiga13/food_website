@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <style>
+        /* Background Image */
+        body {
+            background: url('rast.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container Styling */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        /* Form Inputs */
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Button */
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        /* Toggle Link */
+        .toggle-link {
+            margin-top: 15px;
+            display: block;
+            color: #007bff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="formTitle">Sign In</h2>
+        <form id="authForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div id="extraFields" style="display: none;">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword">
+                </div>
+            </div>
+            <button type="button" class="btn" onclick="window.location.href='services.html'">Sign In</button>
+
+        </form>
+        <span class="toggle-link" onclick="toggleForm()">Don't have an account? Sign Up</span>
+    </div>
+
+    <script>
+        function toggleForm() {
+            let title = document.getElementById("formTitle");
+            let extraFields = document.getElementById("extraFields");
+            let button = document.querySelector(".btn");
+            let toggleText = document.querySelector(".toggle-link");
+
+            if (title.innerText === "Sign In") {
+                title.innerText = "Sign Up";
+                extraFields.style.display = "block";
+                button.innerText = "Sign Up";
+                toggleText.innerText = "Already have an account? Sign In";
+            } else {
+                title.innerText = "Sign In";
+                extraFields.style.display = "none";
+                button.innerText = "Sign In";
+                toggleText.innerText = "Don't have an account? Sign Up";
+            }
+        }
+    </script>
+
+</body>
+</html>
